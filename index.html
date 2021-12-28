@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="authors" content="MichaelKND, Kluu6">
+  <meta name="description" content="Reddit Investment Sentiment does a crude analysis of Reddit user sentiment on a given set of stocks.">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <link rel="ico" href="icon.png" type="image/x-icon">
+
+  <title>Reddit Investment Sentiment</title>
+</head>
+
+<body>
+  <h1 style="text-align: center;" id="topTitle"><em>Reddit Investment Sentiment</em></h1>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script src="chart.js"></script>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="dropdown show">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Stocks
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#" id="CLOV" onclick="makeChart('CLOV')">CLOV</a>
+        <a class="dropdown-item" href="#" id="CLOV" onclick="makeChart('TSLA')">TSLA</a>
+        <a class="dropdown-item" href="#" id="CLOV" onclick="makeChart('AMZN')">AMZN</a>
+        <a class="dropdown-item" href="#" id="CLOV" onclick="makeChart('AAPL')">AAPL</a>
+        </div>
+      <script>
+        async function makeChart(stock) {
+          document.getElementById("topTitle").innerHTML = stock;
+          var test = await reqData(stock);
+          createChart(stock, test);
+        }
+      </script>
+      </div>
+  </nav>
+  <div class = "chart-container" style = "position: relative; height:40vh; width:80vw">
+    <canvas id="myChart" width="400" height="200"></canvas>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+
+</html>
